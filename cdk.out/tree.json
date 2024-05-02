@@ -1,0 +1,380 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "TestCacheApiStack": {
+        "id": "TestCacheApiStack",
+        "path": "TestCacheApiStack",
+        "children": {
+          "MyApi": {
+            "id": "MyApi",
+            "path": "TestCacheApiStack/MyApi",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "TestCacheApiStack/MyApi/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::RestApi",
+                  "aws:cdk:cloudformation:props": {
+                    "description": "This service serves important data.",
+                    "name": "Service API"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.CfnRestApi",
+                  "version": "2.126.0"
+                }
+              },
+              "Deployment": {
+                "id": "Deployment",
+                "path": "TestCacheApiStack/MyApi/Deployment",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "TestCacheApiStack/MyApi/Deployment/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                      "aws:cdk:cloudformation:props": {
+                        "description": "This service serves important data.",
+                        "restApiId": {
+                          "Ref": "MyApi49610EDF"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.CfnDeployment",
+                      "version": "2.126.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.Deployment",
+                  "version": "2.126.0"
+                }
+              },
+              "DeploymentStage.prod": {
+                "id": "DeploymentStage.prod",
+                "path": "TestCacheApiStack/MyApi/DeploymentStage.prod",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "TestCacheApiStack/MyApi/DeploymentStage.prod/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                      "aws:cdk:cloudformation:props": {
+                        "deploymentId": {
+                          "Ref": "MyApiDeploymentECB0D05E196bb98b4c1b204b347262cfc8aa8971"
+                        },
+                        "restApiId": {
+                          "Ref": "MyApi49610EDF"
+                        },
+                        "stageName": "prod"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.CfnStage",
+                      "version": "2.126.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.Stage",
+                  "version": "2.126.0"
+                }
+              },
+              "Endpoint": {
+                "id": "Endpoint",
+                "path": "TestCacheApiStack/MyApi/Endpoint",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnOutput",
+                  "version": "2.126.0"
+                }
+              },
+              "Default": {
+                "id": "Default",
+                "path": "TestCacheApiStack/MyApi/Default",
+                "children": {
+                  "resource1": {
+                    "id": "resource1",
+                    "path": "TestCacheApiStack/MyApi/Default/resource1",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "TestCacheApiStack/MyApi/Default/resource1/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": {
+                              "Fn::GetAtt": [
+                                "MyApi49610EDF",
+                                "RootResourceId"
+                              ]
+                            },
+                            "pathPart": "resource1",
+                            "restApiId": {
+                              "Ref": "MyApi49610EDF"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                          "version": "2.126.0"
+                        }
+                      },
+                      "GET": {
+                        "id": "GET",
+                        "path": "TestCacheApiStack/MyApi/Default/resource1/GET",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "TestCacheApiStack/MyApi/Default/resource1/GET/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "authorizationType": "NONE",
+                                "httpMethod": "GET",
+                                "integration": {
+                                  "type": "MOCK"
+                                },
+                                "resourceId": {
+                                  "Ref": "MyApiresource11419301A"
+                                },
+                                "restApiId": {
+                                  "Ref": "MyApi49610EDF"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                              "version": "2.126.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                          "version": "2.126.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                      "version": "2.126.0"
+                    }
+                  },
+                  "resource2": {
+                    "id": "resource2",
+                    "path": "TestCacheApiStack/MyApi/Default/resource2",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "TestCacheApiStack/MyApi/Default/resource2/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": {
+                              "Fn::GetAtt": [
+                                "MyApi49610EDF",
+                                "RootResourceId"
+                              ]
+                            },
+                            "pathPart": "resource2",
+                            "restApiId": {
+                              "Ref": "MyApi49610EDF"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                          "version": "2.126.0"
+                        }
+                      },
+                      "POST": {
+                        "id": "POST",
+                        "path": "TestCacheApiStack/MyApi/Default/resource2/POST",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "TestCacheApiStack/MyApi/Default/resource2/POST/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "authorizationType": "NONE",
+                                "httpMethod": "POST",
+                                "integration": {
+                                  "type": "MOCK"
+                                },
+                                "resourceId": {
+                                  "Ref": "MyApiresource2EC6DD3BA"
+                                },
+                                "restApiId": {
+                                  "Ref": "MyApi49610EDF"
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                              "version": "2.126.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                          "version": "2.126.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                      "version": "2.126.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
+                  "version": "2.126.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.RestApi",
+              "version": "2.126.0"
+            }
+          },
+          "MyDeployment": {
+            "id": "MyDeployment",
+            "path": "TestCacheApiStack/MyDeployment",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "TestCacheApiStack/MyDeployment/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Deployment",
+                  "aws:cdk:cloudformation:props": {
+                    "restApiId": {
+                      "Ref": "MyApi49610EDF"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.CfnDeployment",
+                  "version": "2.126.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.Deployment",
+              "version": "2.126.0"
+            }
+          },
+          "dev": {
+            "id": "dev",
+            "path": "TestCacheApiStack/dev",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "TestCacheApiStack/dev/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
+                  "aws:cdk:cloudformation:props": {
+                    "cacheClusterEnabled": true,
+                    "cacheClusterSize": "0.5",
+                    "deploymentId": {
+                      "Ref": "MyDeployment74F2406B3850405f8b66da68ab70f920f95d0550"
+                    },
+                    "methodSettings": [
+                      {
+                        "httpMethod": "GET",
+                        "resourcePath": "/~1resource1",
+                        "cacheTtlInSeconds": 300,
+                        "cachingEnabled": true,
+                        "dataTraceEnabled": false
+                      },
+                      {
+                        "httpMethod": "POST",
+                        "resourcePath": "/~1resource2",
+                        "cachingEnabled": false,
+                        "dataTraceEnabled": false
+                      }
+                    ],
+                    "restApiId": {
+                      "Ref": "MyApi49610EDF"
+                    },
+                    "stageName": "dev"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.CfnStage",
+                  "version": "2.126.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.Stage",
+              "version": "2.126.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "TestCacheApiStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "TestCacheApiStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.126.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "TestCacheApiStack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnCondition",
+                  "version": "2.126.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.3.0"
+            }
+          },
+          "BootstrapVersion": {
+            "id": "BootstrapVersion",
+            "path": "TestCacheApiStack/BootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnParameter",
+              "version": "2.126.0"
+            }
+          },
+          "CheckBootstrapVersion": {
+            "id": "CheckBootstrapVersion",
+            "path": "TestCacheApiStack/CheckBootstrapVersion",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.CfnRule",
+              "version": "2.126.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.126.0"
+        }
+      },
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.3.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.126.0"
+    }
+  }
+}

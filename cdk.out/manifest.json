@@ -1,0 +1,131 @@
+{
+  "version": "36.0.0",
+  "artifacts": {
+    "TestCacheApiStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "TestCacheApiStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "TestCacheApiStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "TestCacheApiStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c9c43e15a00687e9761aa0f7a8df29d56391dcc9e8ebddea1be5c0865dc3504d.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "TestCacheApiStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "TestCacheApiStack.assets"
+      ],
+      "metadata": {
+        "/TestCacheApiStack/MyApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApi49610EDF"
+          }
+        ],
+        "/TestCacheApiStack/MyApi/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiDeploymentECB0D05E196bb98b4c1b204b347262cfc8aa8971"
+          }
+        ],
+        "/TestCacheApiStack/MyApi/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiDeploymentStageprodE1054AF0"
+          }
+        ],
+        "/TestCacheApiStack/MyApi/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiEndpoint869ABE96"
+          }
+        ],
+        "/TestCacheApiStack/MyApi/Default/resource1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiresource11419301A"
+          }
+        ],
+        "/TestCacheApiStack/MyApi/Default/resource1/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiresource1GET746C7310"
+          }
+        ],
+        "/TestCacheApiStack/MyApi/Default/resource2/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiresource2EC6DD3BA"
+          }
+        ],
+        "/TestCacheApiStack/MyApi/Default/resource2/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyApiresource2POSTCE163D82"
+          }
+        ],
+        "/TestCacheApiStack/MyDeployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MyDeployment74F2406B3850405f8b66da68ab70f920f95d0550"
+          }
+        ],
+        "/TestCacheApiStack/dev/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devF7B884FF"
+          }
+        ],
+        "/TestCacheApiStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/TestCacheApiStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/TestCacheApiStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/TestCacheApiStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "TestCacheApiStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

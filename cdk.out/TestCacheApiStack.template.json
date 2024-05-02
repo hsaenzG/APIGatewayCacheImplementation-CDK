@@ -1,0 +1,450 @@
+{
+ "Resources": {
+  "MyApi49610EDF": {
+   "Type": "AWS::ApiGateway::RestApi",
+   "Properties": {
+    "Description": "This service serves important data.",
+    "Name": "Service API"
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/MyApi/Resource"
+   }
+  },
+  "MyApiDeploymentECB0D05E196bb98b4c1b204b347262cfc8aa8971": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "Description": "This service serves important data.",
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "DependsOn": [
+    "MyApiresource1GET746C7310",
+    "MyApiresource11419301A",
+    "MyApiresource2POSTCE163D82",
+    "MyApiresource2EC6DD3BA"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/MyApi/Deployment/Resource"
+   }
+  },
+  "MyApiDeploymentStageprodE1054AF0": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "DeploymentId": {
+     "Ref": "MyApiDeploymentECB0D05E196bb98b4c1b204b347262cfc8aa8971"
+    },
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    },
+    "StageName": "prod"
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/MyApi/DeploymentStage.prod/Resource"
+   }
+  },
+  "MyApiresource11419301A": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "MyApi49610EDF",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "resource1",
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/MyApi/Default/resource1/Resource"
+   }
+  },
+  "MyApiresource1GET746C7310": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "GET",
+    "Integration": {
+     "Type": "MOCK"
+    },
+    "ResourceId": {
+     "Ref": "MyApiresource11419301A"
+    },
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/MyApi/Default/resource1/GET/Resource"
+   }
+  },
+  "MyApiresource2EC6DD3BA": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "MyApi49610EDF",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "resource2",
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/MyApi/Default/resource2/Resource"
+   }
+  },
+  "MyApiresource2POSTCE163D82": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "POST",
+    "Integration": {
+     "Type": "MOCK"
+    },
+    "ResourceId": {
+     "Ref": "MyApiresource2EC6DD3BA"
+    },
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/MyApi/Default/resource2/POST/Resource"
+   }
+  },
+  "MyDeployment74F2406B3850405f8b66da68ab70f920f95d0550": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    }
+   },
+   "DependsOn": [
+    "MyApiresource1GET746C7310",
+    "MyApiresource2POSTCE163D82"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/MyDeployment/Resource"
+   }
+  },
+  "devF7B884FF": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "CacheClusterEnabled": true,
+    "CacheClusterSize": "0.5",
+    "DeploymentId": {
+     "Ref": "MyDeployment74F2406B3850405f8b66da68ab70f920f95d0550"
+    },
+    "MethodSettings": [
+     {
+      "CacheTtlInSeconds": 300,
+      "CachingEnabled": true,
+      "DataTraceEnabled": false,
+      "HttpMethod": "GET",
+      "ResourcePath": "/~1resource1"
+     },
+     {
+      "CachingEnabled": false,
+      "DataTraceEnabled": false,
+      "HttpMethod": "POST",
+      "ResourcePath": "/~1resource2"
+     }
+    ],
+    "RestApiId": {
+     "Ref": "MyApi49610EDF"
+    },
+    "StageName": "dev"
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/dev/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WMzQ6CMBCEn8U7rMJBz4pXY4IPYCpdcflpG7qVEMK726Ya9TTffJlMDlm+hc1KjDatZJt2dIP5wqJqE6+uwlAtGEcxwVyi5b2hpLirDx7RdHrqUXGwP80/1BhcBL/XbqjwIOy3vI8in5AfWgYVaQl4dmwc/+08F1pJYtJqSZSWCI1dP/MMdpCtGkuUDk4x9QhlzBchNWC+4gAAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestCacheApiStack/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Outputs": {
+  "MyApiEndpoint869ABE96": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "MyApi49610EDF"
+      },
+      ".execute-api.",
+      {
+       "Ref": "AWS::Region"
+      },
+      ".",
+      {
+       "Ref": "AWS::URLSuffix"
+      },
+      "/",
+      {
+       "Ref": "MyApiDeploymentStageprodE1054AF0"
+      },
+      "/"
+     ]
+    ]
+   }
+  }
+ },
+ "Conditions": {
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "il-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-2"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}
