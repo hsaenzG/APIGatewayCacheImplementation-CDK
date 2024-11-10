@@ -1,4 +1,41 @@
+**API Caching with Amazon API Gateway and AWS CDK**
 
+This repository provides a practical example of implementing API-level caching using Amazon API Gateway, along with endpoint-level cache configuration through the AWS Cloud Development Kit (CDK). The goal of this project is to offer a clear guide and functional example to enhance API performance and efficiency by implementing caching strategies.
+
+**Features**
+- **Amazon API Gateway Cache Implementation**: Step-by-step configuration to enable and manage cache for different API endpoints.
+- **AWS CDK for Automation**: Details on how to use AWS CDK to deploy and manage AWS infrastructure programmatically, focusing on cache settings.
+
+**Who Is This Repository For?**
+This repository is ideal for developers, software architects, and anyone interested in cloud API optimization best practices using AWS services.
+
+Explore the code, implement the solutions, and see how effective caching techniques can significantly improve your API's performance.
+
+Clone the repository and start enhancing your API services' efficiency today!
+
+**Useful Commands**
+- `npm run build` – Compile TypeScript to JavaScript.
+- `npm run watch` – Watch for changes and compile.
+- `npm run test` – Perform the Jest unit tests.
+- `npx cdk deploy` – Deploy this stack to your default AWS account/region.
+- `npx cdk diff` – Compare deployed stack with the current state.
+- `npx cdk synth` – Emit the synthesized CloudFormation template.
+
+**Benefits of Implementing Caching in Your API**
+
+Implementing caching in an API brings multiple benefits, enhancing both performance and end-user experience. Here are the main reasons to consider using it:
+
+- **Performance Improvement**: Caching reduces the number of backend calls needed for frequently requested, unchanged information. By caching responses to common requests, subsequent calls can be served faster, reducing latency and improving API response speed.
+
+- **Cost Reduction**: Fewer backend calls mean less load on servers, leading to lower resource usage and, consequently, reduced operational and infrastructure costs. This is particularly important in microservices architectures or when using cloud services that charge based on resource usage.
+
+- **Scalability**: With caching enabled, your API can handle a larger number of requests with the same resources. This makes the system more scalable, allowing it to support demand peaks without degrading service quality or requiring immediate additional resources.
+
+- **Consistency and Availability**: During backend server outages or performance issues, cache can serve previously stored data to maintain service availability and consistency. This is crucial to provide a high-quality user experience, even during partial system failures.
+
+Implementing caching in your API not only optimizes performance but also improves resilience and efficiency, making your architecture more robust and ready to face the demands of modern applications.
+
+****************** Spanish 👇 ********************
 # API Caching with Amazon API Gateway and AWS CDK
 
 Este repositorio contiene un ejemplo práctico de cómo implementar el caché a nivel de API utilizando Amazon API Gateway, junto con la configuración de caché a nivel de endpoint mediante AWS Cloud Development Kit (CDK). El objetivo de este proyecto es proporcionar una guía clara y un ejemplo funcional para mejorar el rendimiento y la eficiencia de las API mediante la implementación de estrategias de caché.
