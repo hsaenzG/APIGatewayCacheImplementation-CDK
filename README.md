@@ -1,4 +1,4 @@
-#API Caching with Amazon API Gateway and AWS CDK**
+# API Caching with Amazon API Gateway and AWS CDK
 
 This repository provides a practical example of implementing API-level caching using Amazon API Gateway, along with endpoint-level cache configuration through the AWS Cloud Development Kit (CDK). The goal of this project is to offer a clear guide and functional example to enhance API performance and efficiency by implementing caching strategies.
 
