@@ -18,7 +18,7 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c9c43e15a00687e9761aa0f7a8df29d56391dcc9e8ebddea1be5c0865dc3504d.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d6275607ef9f6c083d9c9ae00c4ce4ee3d875e85a28bda35801a6485a9dee188.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
@@ -43,7 +43,7 @@
         "/TestCacheApiStack/MyApi/Deployment/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyApiDeploymentECB0D05E196bb98b4c1b204b347262cfc8aa8971"
+            "data": "MyApiDeploymentECB0D05E6d5ccc2cdef60cf6eba33370d12c286f"
           }
         ],
         "/TestCacheApiStack/MyApi/DeploymentStage.prod/Resource": [
@@ -76,10 +76,10 @@
             "data": "MyApiresource2EC6DD3BA"
           }
         ],
-        "/TestCacheApiStack/MyApi/Default/resource2/POST/Resource": [
+        "/TestCacheApiStack/MyApi/Default/resource2/GET/Resource": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MyApiresource2POSTCE163D82"
+            "data": "MyApiresource2GETAD42D940"
           }
         ],
         "/TestCacheApiStack/MyDeployment/Resource": [

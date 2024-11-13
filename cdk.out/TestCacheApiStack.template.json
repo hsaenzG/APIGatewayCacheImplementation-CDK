@@ -10,7 +10,7 @@
     "aws:cdk:path": "TestCacheApiStack/MyApi/Resource"
    }
   },
-  "MyApiDeploymentECB0D05E196bb98b4c1b204b347262cfc8aa8971": {
+  "MyApiDeploymentECB0D05E6d5ccc2cdef60cf6eba33370d12c286f": {
    "Type": "AWS::ApiGateway::Deployment",
    "Properties": {
     "Description": "This service serves important data.",
@@ -21,7 +21,7 @@
    "DependsOn": [
     "MyApiresource1GET746C7310",
     "MyApiresource11419301A",
-    "MyApiresource2POSTCE163D82",
+    "MyApiresource2GETAD42D940",
     "MyApiresource2EC6DD3BA"
    ],
    "Metadata": {
@@ -32,7 +32,7 @@
    "Type": "AWS::ApiGateway::Stage",
    "Properties": {
     "DeploymentId": {
-     "Ref": "MyApiDeploymentECB0D05E196bb98b4c1b204b347262cfc8aa8971"
+     "Ref": "MyApiDeploymentECB0D05E6d5ccc2cdef60cf6eba33370d12c286f"
     },
     "RestApiId": {
      "Ref": "MyApi49610EDF"
@@ -67,8 +67,24 @@
     "AuthorizationType": "NONE",
     "HttpMethod": "GET",
     "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseTemplates": {
+        "application/json": "{\"message\":\"This is mock data for GET /resource1\"}"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{\"statusCode\": 200}"
+     },
      "Type": "MOCK"
     },
+    "MethodResponses": [
+     {
+      "StatusCode": "200"
+     }
+    ],
     "ResourceId": {
      "Ref": "MyApiresource11419301A"
     },
@@ -98,14 +114,30 @@
     "aws:cdk:path": "TestCacheApiStack/MyApi/Default/resource2/Resource"
    }
   },
-  "MyApiresource2POSTCE163D82": {
+  "MyApiresource2GETAD42D940": {
    "Type": "AWS::ApiGateway::Method",
    "Properties": {
     "AuthorizationType": "NONE",
-    "HttpMethod": "POST",
+    "HttpMethod": "GET",
     "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseTemplates": {
+        "application/json": "{\"message\":\"This is mock data for POST /resource2\"}"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{\"statusCode\": 200}"
+     },
      "Type": "MOCK"
     },
+    "MethodResponses": [
+     {
+      "StatusCode": "200"
+     }
+    ],
     "ResourceId": {
      "Ref": "MyApiresource2EC6DD3BA"
     },
@@ -114,7 +146,7 @@
     }
    },
    "Metadata": {
-    "aws:cdk:path": "TestCacheApiStack/MyApi/Default/resource2/POST/Resource"
+    "aws:cdk:path": "TestCacheApiStack/MyApi/Default/resource2/GET/Resource"
    }
   },
   "MyDeployment74F2406B3850405f8b66da68ab70f920f95d0550": {
@@ -126,7 +158,7 @@
    },
    "DependsOn": [
     "MyApiresource1GET746C7310",
-    "MyApiresource2POSTCE163D82"
+    "MyApiresource2GETAD42D940"
    ],
    "Metadata": {
     "aws:cdk:path": "TestCacheApiStack/MyDeployment/Resource"
@@ -151,7 +183,7 @@
      {
       "CachingEnabled": false,
       "DataTraceEnabled": false,
-      "HttpMethod": "POST",
+      "HttpMethod": "GET",
       "ResourcePath": "/~1resource2"
      }
     ],
@@ -167,7 +199,7 @@
   "CDKMetadata": {
    "Type": "AWS::CDK::Metadata",
    "Properties": {
-    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WMzQ6CMBCEn8U7rMJBz4pXY4IPYCpdcflpG7qVEMK726Ya9TTffJlMDlm+hc1KjDatZJt2dIP5wqJqE6+uwlAtGEcxwVyi5b2hpLirDx7RdHrqUXGwP80/1BhcBL/XbqjwIOy3vI8in5AfWgYVaQl4dmwc/+08F1pJYtJqSZSWCI1dP/MMdpCtGkuUDk4x9QhlzBchNWC+4gAAAA=="
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WMzQ6CMBCEn4U7rNiDnhWvxgQewKx00fLTNnQrIYR3N0016mm++TIZAVuxgzzByWW17LJe3WCpGOsuxcld0ao7Mk04w1KS44NVadHoD57I9mYeSHOwP61ivFNwEUpyxo81HdF9y/so8pn4YWRQkdaAF8/W89+uaHRhtFSsjF5TbSRB6zZPIWAPedI6pbLRa1YDQRnzBRm8H1viAAAA"
    },
    "Metadata": {
     "aws:cdk:path": "TestCacheApiStack/CDKMetadata/Default"

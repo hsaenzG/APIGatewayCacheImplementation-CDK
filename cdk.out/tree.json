@@ -65,7 +65,7 @@
                       "aws:cdk:cloudformation:type": "AWS::ApiGateway::Stage",
                       "aws:cdk:cloudformation:props": {
                         "deploymentId": {
-                          "Ref": "MyApiDeploymentECB0D05E196bb98b4c1b204b347262cfc8aa8971"
+                          "Ref": "MyApiDeploymentECB0D05E6d5ccc2cdef60cf6eba33370d12c286f"
                         },
                         "restApiId": {
                           "Ref": "MyApi49610EDF"
@@ -136,8 +136,24 @@
                                 "authorizationType": "NONE",
                                 "httpMethod": "GET",
                                 "integration": {
-                                  "type": "MOCK"
+                                  "type": "MOCK",
+                                  "requestTemplates": {
+                                    "application/json": "{\"statusCode\": 200}"
+                                  },
+                                  "integrationResponses": [
+                                    {
+                                      "statusCode": "200",
+                                      "responseTemplates": {
+                                        "application/json": "{\"message\":\"This is mock data for GET /resource1\"}"
+                                      }
+                                    }
+                                  ]
                                 },
+                                "methodResponses": [
+                                  {
+                                    "statusCode": "200"
+                                  }
+                                ],
                                 "resourceId": {
                                   "Ref": "MyApiresource11419301A"
                                 },
@@ -190,21 +206,37 @@
                           "version": "2.126.0"
                         }
                       },
-                      "POST": {
-                        "id": "POST",
-                        "path": "TestCacheApiStack/MyApi/Default/resource2/POST",
+                      "GET": {
+                        "id": "GET",
+                        "path": "TestCacheApiStack/MyApi/Default/resource2/GET",
                         "children": {
                           "Resource": {
                             "id": "Resource",
-                            "path": "TestCacheApiStack/MyApi/Default/resource2/POST/Resource",
+                            "path": "TestCacheApiStack/MyApi/Default/resource2/GET/Resource",
                             "attributes": {
                               "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
                               "aws:cdk:cloudformation:props": {
                                 "authorizationType": "NONE",
-                                "httpMethod": "POST",
+                                "httpMethod": "GET",
                                 "integration": {
-                                  "type": "MOCK"
+                                  "type": "MOCK",
+                                  "requestTemplates": {
+                                    "application/json": "{\"statusCode\": 200}"
+                                  },
+                                  "integrationResponses": [
+                                    {
+                                      "statusCode": "200",
+                                      "responseTemplates": {
+                                        "application/json": "{\"message\":\"This is mock data for POST /resource2\"}"
+                                      }
+                                    }
+                                  ]
                                 },
+                                "methodResponses": [
+                                  {
+                                    "statusCode": "200"
+                                  }
+                                ],
                                 "resourceId": {
                                   "Ref": "MyApiresource2EC6DD3BA"
                                 },
@@ -292,7 +324,7 @@
                         "dataTraceEnabled": false
                       },
                       {
-                        "httpMethod": "POST",
+                        "httpMethod": "GET",
                         "resourcePath": "/~1resource2",
                         "cachingEnabled": false,
                         "dataTraceEnabled": false

@@ -1,0 +1,40 @@
+# Node.js
+node_modules/
+dist/
+build/
+temp/
+.tmp/
+
+# TypeScript
+*.tsbuildinfo
+
+# Compiled JavaScript files
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+
+# Output of `npm pack`
+*.tgz
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Environment variables
+.env
+.env.local
+.env.*.local
